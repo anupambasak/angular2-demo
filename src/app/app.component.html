@@ -1,3 +1,17 @@
-<h1>
-  {{title}}
-</h1>
+<div class="row">
+  <div class="col-md-12">
+    <nav class="nav nav-tabs">
+      <li><a routerLink="" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/route1" routerLinkActive="active">childroute-1</a></li>
+      <li><a routerLink="/route2" routerLinkActive="active">childroute-2</a></li>
+      <li><a [routerLink]="['/route3',cds.counter]" routerLinkActive="active">childroute-3</a></li>
+      <li><a routerLink="/lazy1" routerLinkActive="active">lazy1</a></li>
+    </nav>
+  </div>
+  <div class="col-md-12 panel panel-default">
+    <h1>My Main Component</h1>
+    Value of counter: {{cds.counter}}
+    <button (click)="buttonClick()" class="btn btn-info btn-lg">Main Component Increment Data</button>
+  </div>
+</div>
+<app-main-child1></app-main-child1>

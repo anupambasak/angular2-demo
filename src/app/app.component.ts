@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CounterDataService } from './shared/counter-data.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+
+  cds: CounterDataService;
+
+  constructor(counterDataService: CounterDataService) {
+    this.cds = counterDataService;
+  }
+
+  buttonClick() {
+    this.cds.increment();
+  }
+
 }

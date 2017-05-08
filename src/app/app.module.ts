@@ -13,6 +13,10 @@ import { ChildRoute2Component } from './child-route2/child-route2.component';
 
 import { AppRoutingModule} from './app-routing/app-routing.module';
 import { ChildRoute3Component } from './child-route3/child-route3.component';
+import { RxdemoComponent } from './rxdemo/rxdemo.component';
+import { NgrxDemoComponent } from './ngrx-demo/ngrx-demo.component';
+import { StoreModule } from '@ngrx/store';
+import { counter1Reducer } from './reducers/count1reducer';
 
 @NgModule({
   declarations: [
@@ -20,20 +24,23 @@ import { ChildRoute3Component } from './child-route3/child-route3.component';
     MainChild1Component,
     ChildRoute1Component,
     ChildRoute2Component,
-    ChildRoute3Component
+    ChildRoute3Component,
+    RxdemoComponent,
+    NgrxDemoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    StoreModule.provideStore({counter1store: counter1Reducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor(router: Router) {
-    console.log('Routes:' + JSON.stringify(router.config, undefined, 2));
+    // console.log('Routes:' + JSON.stringify(router.config, undefined, 2));
   }
 }

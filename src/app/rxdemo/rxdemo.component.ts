@@ -222,4 +222,25 @@ All actions should pass through pipeline before newly calculated state is passed
     });
   }
 
+  test() {
+    let source = Rx.Observable
+      .range(1, 2)
+      .flatMap((a, b) => {
+        // console.log('values:', a, b);
+        return Rx.Observable.range(a, 2);
+      });
+
+    let subscription = source.subscribe(
+      function (x) {
+        console.log('Next: ' + x);
+      },
+      function (err) {
+        console.log('Error: ' + err);
+      },
+      function () {
+        console.log('Completed');
+      });
+
+  }
+
 }
